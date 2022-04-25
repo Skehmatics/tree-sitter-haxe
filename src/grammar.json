@@ -736,13 +736,27 @@
           }
         },
         {
-          "type": "ALIAS",
-          "content": {
-            "type": "STRING",
-            "value": "var"
-          },
-          "named": true,
-          "value": "keyword"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "STRING",
+                "value": "var"
+              },
+              "named": true,
+              "value": "keyword"
+            },
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "STRING",
+                "value": "final"
+              },
+              "named": true,
+              "value": "keyword"
+            }
+          ]
         },
         {
           "type": "FIELD",

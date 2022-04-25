@@ -224,6 +224,36 @@ class Main {
 )
 
 ===================
+class function with final declaration assignment statement
+===================
+
+class Main {
+  function foo(){
+    final x = 4;
+    final y = 'test';
+    final z = new Type();
+    final a = Factory(1);
+  }
+}
+
+---
+
+(module
+  (class_declaration (keyword) (identifier)
+    (block
+      (function_declaration (keyword) (identifier)
+        (block
+          (variable_declaration (keyword) (identifier) (operator) (literal (integer)))
+          (variable_declaration (keyword) (identifier) (operator) (literal (string)))
+          (variable_declaration (keyword) (identifier) (operator) (keyword) (call (attribute (identifier))))
+          (variable_declaration (keyword) (identifier) (operator) (call (attribute (identifier)) (literal (integer))))
+        )
+      )
+    )
+  )
+)
+
+===================
 class function with seperate declaration and assignment statements
 ===================
 
@@ -278,11 +308,56 @@ class Main {
 )
 
 ===================
+class final members
+===================
+
+class Main {
+  public final x;
+}
+
+---
+
+(module
+  (class_declaration (keyword) (identifier)
+    (block
+      (variable_declaration
+        (keyword)
+        (keyword)
+        (identifier)
+      )
+    )
+  )
+)
+
+===================
 class variables with basic type
 ===================
 
 class Main {
   public var x:Int;
+}
+
+---
+
+(module
+  (class_declaration (keyword) (identifier)
+    (block
+      (variable_declaration
+        (keyword)
+        (keyword)
+        (identifier)
+        (type (identifier))
+      )
+    )
+  )
+)
+
+===================
+class final member with basic type
+===================
+
+class Main {
+  public final x:Int;
 }
 
 ---

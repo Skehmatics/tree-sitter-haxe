@@ -120,7 +120,7 @@ const haxe_grammar = {
     variable_declaration: ($) =>
       seq(
         repeat($.keyword),
-        alias('var', $.keyword),
+        choice(alias('var', $.keyword), alias('final', $.keyword)),
         field('name', $.identifier),
         optional(seq(':', field('type', alias($.attribute, $.type)))),
         optional(seq($.operator, choice($.literal, seq(optional(alias('new', $.keyword)), $.call)))),
